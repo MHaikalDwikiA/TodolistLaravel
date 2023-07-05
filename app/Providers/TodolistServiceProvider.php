@@ -9,7 +9,7 @@ use Illuminate\Support\ServiceProvider;
 
 class TodolistServiceProvider extends ServiceProvider implements DeferrableProvider
 {
-    public array $singleton = [
+    public array $singletons = [
         TodolistService::class => TodolistServiceImpl::class,
     ];
 

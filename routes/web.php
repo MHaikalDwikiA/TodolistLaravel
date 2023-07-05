@@ -24,3 +24,10 @@ Route::controller(\App\Http\Controllers\UserController::class)->group(function()
 
 
 });
+
+Route::controller(\App\Http\Controllers\TodolistController::class)
+    ->middleware([\App\Http\Middleware\OnlyMemberMiddleware::class])->group(function(){
+        Route::get('/todolist', 'todoList');
+        Route::post('/todolist', 'addTodo');
+        Route::post('/todolist/{id}/delete', 'removeTodo');
+    });
